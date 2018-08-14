@@ -1,0 +1,28 @@
+<div class="clearfix" style="width:100%">
+  <img class="logo" src={{imgPath}} alt = "logo"/>
+  <h1 class="brand" style="">SaveAz</h1>
+</div>
+<nav class="appNav">
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/items-liked">Items Liked</a>
+  <a routerLink="/alerts">Alerts</a>
+  <div class="right">
+    <a routerLink="/items-liked"
+      class="btn btn-primary btn-margin"
+      *ngIf="!auth.isAuthenticated()"
+      (click)="auth.login()">
+        Log In
+    </a>
+    <a routerLink="/dashboard"
+      class="btn btn-primary btn-margin"
+      *ngIf="auth.isAuthenticated()"
+      (click)="auth.logout()">
+        Log Out
+    </a>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+
+
+
